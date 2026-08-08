@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "books")
 public class Book {
-
+//here add the attribute
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
