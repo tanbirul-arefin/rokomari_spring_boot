@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="sidebar">
+    <div style="width:200px; height:100vh; background:#34495e; color:white; padding:15px; float:left;">
+        <h3>Menu</h3>
+
+        <ul style="list-style:none; padding:0;">
+            <li><a th:href="@{/dashboard}" style="color:white;">Dashboard</a></li>
+            <li><a th:href="@{/employees}" style="color:white;">Employees</a></li>
+            <li><a th:href="@{/settings}" style="color:white;">Settings</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

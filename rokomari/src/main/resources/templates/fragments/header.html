@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header th:fragment="header">
+    <div style="background:#2c3e50; color:white; padding:15px;">
+        <h2>My Application</h2>
+
+        <nav>
+            <a th:href="@{/}" style="color:white; margin-right:10px;">Home</a>
+            <a th:href="@{/dashboard}" style="color:white; margin-right:10px;">Dashboard</a>
+            <a th:href="@{/logout}" style="color:white;">Logout</a>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>

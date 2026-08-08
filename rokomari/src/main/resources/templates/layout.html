@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>My App</title>
+</head>
+
+<body>
+
+<!-- Header -->
+<div th:replace="fragments/header :: header"></div>
+
+<div style="display:flex;">
+
+    <!-- Sidebar -->
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <!-- Main Content -->
+    <div style="flex:1; padding:20px;">
+        <div th:insert="${content}"></div>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
