@@ -12,13 +12,24 @@ public class BookServiceImplementation implements BookService{
 
     @Autowired
     BookRepository bookRepository;
+
     @Override
     public List<Book> getAllBook() {
         return bookRepository.findAll();
     }
-    //here call service imoplement
+
     @Override
     public void saveBook(Book book) {
         bookRepository.save(book);
+    }
+
+    @Override
+    public Book getBookById(long id) {
+        return bookRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void deleteBookById(long id) {
+        bookRepository.deleteById(id);
     }
 }

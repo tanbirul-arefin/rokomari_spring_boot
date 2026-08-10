@@ -5,10 +5,7 @@ import com.rokomari.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -24,30 +21,33 @@ public class BookController {
         return "index";
     }
 
-    //
+    // Show new book form for adding
     @GetMapping("/showNewBookForm")
-    public String view(Model model){
-        Book b1 = new Book();
-
-        model.addAttribute("book",b1);
-
+    public String showNewBookForm(Model model){
+        Book book = new Book();
+        model.addAttribute("book", book);
         return "showNewBookForm";
     }
 
-
-
-    //Creating form to insert book details
+    // Save new book
     @PostMapping("/saveBook")
-    public String saveBook(Model model , Book book) {
-
+    public String saveBook(@ModelAttribute("book") Book book) {
         bookService.saveBook(book);
+        return "redirect:/";
+    }
 
-        //model.addAttribute("message","Book saved successfully");
+    // Show form for updating
+    @GetMapping("/showFormForUpdate/{id}")
+    public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+        Book book = bookService.getBookById(id);
+        model.addAttribute("book", book);
+        return "showNewBookForm";
+    }
 
-        //ra.asValue("message","Book saved successfully");
-
-
-//missing msql
+    // Delete book
+    @GetMapping("/deleteBook/{id}")
+    public String deleteBook(@PathVariable(value = "id") long id) {
+        bookService.deleteBookById(id);
         return "redirect:/";
     }
 
